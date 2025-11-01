@@ -22,6 +22,8 @@ defmodule ToyRobot.Robot do
         case facing do
             :east -> robot |> move_right
             :west -> robot |> move_left
+            :north -> robot |> move_north
+            :south -> robot |> move_south
         end
     end
 
@@ -33,13 +35,13 @@ defmodule ToyRobot.Robot do
         %Robot{ robot | x: robot.x - 1 }
     end
 
-  defp move_north(robot) do
-    nil
-  end
+    defp move_north(robot) do
+        %Robot{ robot | y: robot.y + 1}
+    end
 
-  defp move_south(robot) do
-    nil
-  end
+    defp move_south(robot) do
+        %Robot{ robot | y: robot.y - 1}
+    end
 
   @doc """
   Gira o robô no sentido anti-horário (esquerda)
