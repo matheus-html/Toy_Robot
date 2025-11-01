@@ -37,11 +37,13 @@ defmodule ToyRobot.CommandRunner do
   end
 
   def run([:turn_left | rest], simulation) do
-    nil
+      {:ok, nova_sim} = Simulation.turn_left(simulation)
+      run(rest, nova_sim)
   end
 
   def run([:turn_right | rest], simulation) do
-    nil
+      {:ok, nova_sim} = Simulation.turn_right(simulation)
+      run(rest, nova_sim)
   end
 
   def run([:report | rest], simulation) do
