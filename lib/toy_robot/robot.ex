@@ -55,7 +55,12 @@ defmodule ToyRobot.Robot do
     %Robot{x: 0, y: 0, facing: :west}
   """
   def turn_left(%__MODULE__{facing: facing} = robot) do
-    nil
+    case robot.facing do
+      :north -> %Robot { robot | facing: :west}
+      :west -> %Robot { robot | facing: :south}
+      :south -> %Robot { robot | facing: :east}
+      :east -> %Robot { robot | facing: :north}
+    end
   end
 
   @doc """
@@ -70,6 +75,11 @@ defmodule ToyRobot.Robot do
     %Robot{x: 0, y: 0, facing: :east}
   """
   def turn_right(%__MODULE__{facing: facing} = robot) do
-    nil
+    case robot.facing do
+      :north -> %Robot { robot | facing: :east}
+      :east -> %Robot { robot | facing: :south}
+      :south -> %Robot { robot | facing: :west}
+      :west -> %Robot { robot | facing: :north}
+    end
   end
 end
