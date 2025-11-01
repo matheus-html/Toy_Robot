@@ -53,11 +53,11 @@ defmodule ToyRobot.CommandInterpreter do
   end
 
   defp do_interpret("LEFT") do
-    nil
+    :turn_left
   end
 
   defp do_interpret("RIGHT") do
-    nil
+    :turn_right
   end
 
   defp do_interpret("REPORT") do
